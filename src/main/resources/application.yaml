@@ -7,9 +7,9 @@ spring:
 
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/petshop
-    username: root
-    password: rootroot
+    url: jdbc:mysql://localhost:3306/petshop3
+    username: petshop3
+    password: petshop3
     driver-class-name: com.mysql.cj.jdbc.Driver
 
     hikari:

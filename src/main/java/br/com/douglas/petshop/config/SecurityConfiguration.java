@@ -64,7 +64,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(auth -> {
 
                     //Permitir tudo
-                    auth.requestMatchers("/").permitAll();
+                    auth.anyRequest().permitAll();
 
                     // Login sempre público
                     //auth.requestMatchers(AUTH_URI).permitAll();

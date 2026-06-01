@@ -8,6 +8,7 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 import java.util.List;
 
@@ -24,19 +25,19 @@ public class OpenAPIConfig {
         //homolog.setUrl("https://homolog.api.vitrine1.com.br");
         //homolog.setDescription("Ambiente Homologação");
 
-        Server production = new Server();
-        production.setUrl("https://api.vitrine1.com.br");
-        production.setDescription("Ambiente Produção");
+        //Server production = new Server();
+        //production.setUrl("https://api.vitrine1.com.br");
+        //production.setDescription("Ambiente Produção");
 
         return new OpenAPI()
                 .info(new Info()
-                        .title("Fee-Tree API")
+                        .title("Petshop API")
                         .version("1.0")
-                        .description("Documentação da API de gerenciamento do Fee-Tree"))
+                        .description("Documentação da API de gerenciamento do PetShop"))
                 .servers(List.of(
-                        localhost,
-                        //homolog,
-                        production
+                        localhost
+                        //,homolog
+                        //,production
                 ))
                 .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
                 .components(new Components()
