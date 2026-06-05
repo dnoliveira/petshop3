@@ -1,0 +1,73 @@
+@baseUrl = http://localhost:8080
+@token = SEU_TOKEN_JWT
+
+### ============================================
+### LISTAR TODAS AS ORDENS
+### ============================================
+
+GET {{baseUrl}}/api/v1/ordem
+Authorization: Bearer {{token}}
+
+### ============================================
+### BUSCAR ORDEM POR ID
+### ============================================
+
+GET {{baseUrl}}/api/v1/ordem/1
+Authorization: Bearer {{token}}
+
+### ============================================
+### CRIAR ORDEM
+### ============================================
+
+POST {{baseUrl}}/api/v1/ordem
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "dtOrdem": "2026-06-05T10:00:00",
+    "observacao": "Banho e tosa",
+
+    "pet": {
+        "id": 1
+    },
+
+    "servicos": [
+        {
+            "id": 1
+        },
+        {
+            "id": 2
+        }
+    ]
+}
+
+### ============================================
+### ATUALIZAR ORDEM
+### ============================================
+
+PUT {{baseUrl}}/api/v1/ordem
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "id": 1,
+    "dtOrdem": "2026-06-05T14:00:00",
+    "observacao": "Atualização da ordem",
+
+    "pet": {
+        "id": 1
+    },
+
+    "servicos": [
+        {
+            "id": 1
+        }
+    ]
+}
+
+### ============================================
+### EXCLUIR ORDEM
+### ============================================
+
+DELETE {{baseUrl}}/api/v1/ordem/1
+Authorization: Bearer {{token}}

@@ -5,12 +5,14 @@ import lombok.*;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-@Entity(name = "servico")
+@ToString
+@EqualsAndHashCode(of = "id")
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "servico")
 public class Servico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

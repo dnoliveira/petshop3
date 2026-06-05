@@ -1,0 +1,57 @@
+@baseUrl = http://localhost:8080
+@token = SEU_TOKEN_JWT
+
+### ============================================
+### LISTAR TODOS OS PETS
+### ============================================
+
+GET {{baseUrl}}/api/v1/pet
+Authorization: Bearer {{token}}
+
+### ============================================
+### BUSCAR PET POR ID
+### ============================================
+
+GET {{baseUrl}}/api/v1/pet/1
+Authorization: Bearer {{token}}
+
+### ============================================
+### PESQUISAR PET POR TEXTO
+### ============================================
+
+GET {{baseUrl}}/api/v1/pet/searchText/Rex
+Authorization: Bearer {{token}}
+
+### ============================================
+### CRIAR PET
+### ============================================
+
+POST {{baseUrl}}/api/v1/pet
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "nome": "Bidu",
+    "dono": "Monica"
+}
+
+### ============================================
+### ATUALIZAR PET
+### ============================================
+
+PUT {{baseUrl}}/api/v1/pet
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "id": 1,
+    "nome": "Rex Atualizado",
+    "dono": "Douglas Oliveira"
+}
+
+### ============================================
+### EXCLUIR PET
+### ============================================
+
+DELETE {{baseUrl}}/api/v1/pet/1
+Authorization: Bearer {{token}}

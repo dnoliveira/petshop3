@@ -1,0 +1,50 @@
+@baseUrl = http://localhost:8080
+@token = SEU_TOKEN_JWT
+
+### ============================================
+### LISTAR TODOS OS SERVIÇOS
+### ============================================
+
+GET {{baseUrl}}/api/v1/servico
+Authorization: Bearer {{token}}
+
+### ============================================
+### BUSCAR SERVIÇO POR ID
+### ============================================
+
+GET {{baseUrl}}/api/v1/servico/1
+Authorization: Bearer {{token}}
+
+### ============================================
+### CRIAR SERVIÇO
+### ============================================
+
+POST {{baseUrl}}/api/v1/servico
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "descricao": "Tosa",
+    "valor": 60.90
+}
+
+### ============================================
+### ATUALIZAR SERVIÇO
+### ============================================
+
+PUT {{baseUrl}}/api/v1/servico
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "id": 1,
+    "descricao": "Banho Premium",
+    "valor": 65.00
+}
+
+### ============================================
+### EXCLUIR SERVIÇO
+### ============================================
+
+DELETE {{baseUrl}}/api/v1/servico/1
+Authorization: Bearer {{token}}

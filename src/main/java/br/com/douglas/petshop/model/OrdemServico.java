@@ -1,31 +1,38 @@
 package br.com.douglas.petshop.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-@Entity(name = "ordem_servico")
+@ToString
+@EqualsAndHashCode(of = "id")
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(
+        name = "ordem_servico",
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        columnNames = {"ordem_id", "servico_id"}
+                )
+        }
+)
 public class OrdemServico {
-    
-    @EmbeddedId
-    private OrdemServicoId id = new OrdemServicoId();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
-    @MapsId("idOrdem")
+    @JoinColumn(name = "ordem_id", nullable = false)
     private Ordem ordem;
 
     @ManyToOne
-    @MapsId("idServico")
+    @JoinColumn(name = "servico_id", nullable = false)
     private Servico servico;
 
-    @Column(nullable = false)
+    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal valor;
 }

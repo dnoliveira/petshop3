@@ -4,12 +4,14 @@ import lombok.*;
 
 import jakarta.persistence.*;
 
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-@Entity(name = "pet")
+@ToString
+@EqualsAndHashCode(of = "id")
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "pet")
 public class Pet {
 
     @Id
@@ -26,4 +28,5 @@ public class Pet {
         this.nome = nome;
         this.dono = dono;
     }
+
 }

@@ -11,8 +11,10 @@ import java.util.List;
 @Repository
 public interface PetRepository extends JpaRepository<Pet, Long> {
 
-    @Query(" SELECT p FROM pet p " +
-            " WHERE p.nome like :searchText " +
-            "    or p.dono like :searchText ")
+    @Query("""
+        SELECT p FROM Pet p
+        WHERE p.nome LIKE :searchText
+           OR p.dono LIKE :searchText
+    """)
     List<Pet> findAllActiveUsers(@Param("searchText") String searchText);
 }
